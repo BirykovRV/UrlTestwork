@@ -9,6 +9,6 @@
   <li> Bootstrap </li>
 </ul>
 Приложение написано по принципу Code First.
-Для работы с БД нужно прописать в <code>appsettings.json</code> параметры подключения,<br>
+Для работы с БД нужно прописать в <code>appsettings.json</code> параметры подключения, 
 а также установить <code>mysql-connector-net-8.0.21</code>.
 Миграция БД только ручная.
