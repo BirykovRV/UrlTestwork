@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UrlTestwork.Models.CuttLink>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a class="btn btn-info" asp-area="" asp-controller="home" asp-action="create">Добавить</a>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Оригинальный URL</th>
+                <th>Сокращенный URL</th>
+                <th>Щелчки</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DateTime</td>
+                    <td><a target="_blank" href="@item.Url">@item.Url</a></td>
+                    <td><a target="_blank" href="@item.ShortUrl">@item.ShortUrl</a></td>
+                    <td>@item.Clicked</td>
+                    <td><a class="btn btn-primary" asp-controller="home" asp-action="edit" asp-route-id="@item.Id">Изменить</a></td>
+                    <td><button class="btn btn-danger" onclick="DeleteLink(@item.Id)">X</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+
+    function DeleteLink(id) {
+        $.post("home/delete",
+            {
+                id: id
+            },
+            function (data, status) {
+                alert("Ссылка удалена: " + status);
+                window.location.replace("/");
+            });
+    }
+
+</script>
