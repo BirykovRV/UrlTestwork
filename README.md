@@ -7,7 +7,6 @@
   <li> Entity Framework Core </li>
   <li> MySQL </li>
   <li> Bootstrap </li>
-  <li> Ajax </li>
 </ul>
 Приложение написано по принципу Code First.
 Для работы с БД нужно прописать в <code>appsettings.json</code> параметры подключения,<br>
